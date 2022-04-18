@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           height: height,
-          child: Row(children: const [
+          child: Row(children: [
             Expanded(
               flex: 3,
               child: Menu(),
