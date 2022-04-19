@@ -4,7 +4,7 @@ import 'package:webapp/screens/list_chat.dart';
 import 'package:webapp/screens/menu.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final _key = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -12,22 +12,37 @@ class HomePage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      key: _key,
+      drawer: width > 880
+          ? null
+          : Container(
+              width: 250,
+              child: Menu(),
+            ),
       body: SafeArea(
         child: Container(
           height: height,
           child: Row(children: [
-            Expanded(
-              flex: 3,
-              child: Menu(),
-            ),
+            if (width > 880)
+              Expanded(
+                flex: 3,
+                child: Menu(),
+              ),
             Expanded(
               flex: 7,
-              child: ChatList(),
+              child: ChatList(
+                onOpenMenu: width > 880
+                    ? null
+                    : () {
+                        _key.currentState!.openDrawer();
+                      },
+              ),
             ),
-            Expanded(
-              flex: 8,
-              child: ChatMessage(),
-            ),
+            if (width > 660)
+              Expanded(
+                flex: 8,
+                child: ChatMessage(),
+              ),
           ]),
         ),
       ),

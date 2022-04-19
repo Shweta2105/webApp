@@ -31,77 +31,79 @@ class _MenuState extends State<Menu> {
       child: Column(
         children: [
           Expanded(
-            child: Column(
-              children: [
-                Container(
-                  padding: const EdgeInsets.only(top: 50, bottom: 50),
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        backgroundImage: AssetImage(Config.assets.user),
-                        radius: 40,
-                        backgroundColor: Colors.white,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Henry',
-                            style: Config.styles.prymaryTextStyle
-                                .copyWith(fontSize: 12.5),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(top: 2),
-                            child: Icon(
-                              Icons.keyboard_arrow_down,
-                              color: Config.colors.primaryBlackColor,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(top: 50, bottom: 50),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: AssetImage(Config.assets.user),
+                          radius: 40,
+                          backgroundColor: Colors.white,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Henry',
+                              style: Config.styles.prymaryTextStyle
+                                  .copyWith(fontSize: 12.5),
                             ),
-                          )
-                        ],
-                      )
-                    ],
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(top: 2),
+                              child: Icon(
+                                Icons.keyboard_arrow_down,
+                                color: Config.colors.primaryBlackColor,
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                MenuItem(
-                  title: "Home",
-                  groupValue: MenuItemSelect.HOME,
-                  onChanged: onChanged,
-                  icon: FeatherIcons.grid,
-                ),
-                MenuItem(
-                  title: "Chat",
-                  groupValue: MenuItemSelect.CHAT,
-                  onChanged: onChanged,
-                  icon: FontAwesomeIcons.commentDots,
-                ),
-                MenuItem(
-                  title: "Contact",
-                  groupValue: MenuItemSelect.CONTACT,
-                  onChanged: onChanged,
-                  icon: FeatherIcons.user,
-                ),
-                MenuItem(
-                  title: "Notification",
-                  groupValue: MenuItemSelect.NOTIIFICATION,
-                  onChanged: onChanged,
-                  icon: FeatherIcons.bell,
-                ),
-                MenuItem(
-                  title: "Calender",
-                  groupValue: MenuItemSelect.CALENDAR,
-                  onChanged: onChanged,
-                  icon: FeatherIcons.calendar,
-                ),
-                MenuItem(
-                  title: "Settings",
-                  groupValue: MenuItemSelect.SETTINGS,
-                  onChanged: onChanged,
-                  icon: FeatherIcons.settings,
-                ),
-              ],
+                  MenuItem(
+                    title: "Home",
+                    groupValue: MenuItemSelect.HOME,
+                    onChanged: onChanged,
+                    icon: FeatherIcons.grid,
+                  ),
+                  MenuItem(
+                    title: "Chat",
+                    groupValue: MenuItemSelect.CHAT,
+                    onChanged: onChanged,
+                    icon: FontAwesomeIcons.commentDots,
+                  ),
+                  MenuItem(
+                    title: "Contact",
+                    groupValue: MenuItemSelect.CONTACT,
+                    onChanged: onChanged,
+                    icon: FeatherIcons.user,
+                  ),
+                  MenuItem(
+                    title: "Notification",
+                    groupValue: MenuItemSelect.NOTIIFICATION,
+                    onChanged: onChanged,
+                    icon: FeatherIcons.bell,
+                  ),
+                  MenuItem(
+                    title: "Calender",
+                    groupValue: MenuItemSelect.CALENDAR,
+                    onChanged: onChanged,
+                    icon: FeatherIcons.calendar,
+                  ),
+                  MenuItem(
+                    title: "Settings",
+                    groupValue: MenuItemSelect.SETTINGS,
+                    onChanged: onChanged,
+                    icon: FeatherIcons.settings,
+                  ),
+                ],
+              ),
             ),
           ),
           MenuItem(

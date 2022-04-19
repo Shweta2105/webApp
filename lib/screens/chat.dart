@@ -15,6 +15,8 @@ class ChatMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    bool isMobile = width <= 660;
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.only(top: 50, bottom: 25, left: 5, right: 15),
@@ -28,7 +30,7 @@ class ChatMessage extends StatelessWidget {
           ]),
           child: Column(children: [
             Container(
-              padding: EdgeInsets.fromLTRB(35, 20, 30, 15),
+              padding: EdgeInsets.fromLTRB(isMobile ? 10 : 35, 20, 30, 15),
               decoration: BoxDecoration(
                   border: Border(
                       bottom: BorderSide(
@@ -36,6 +38,13 @@ class ChatMessage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  if (isMobile)
+                    InkWell(
+                      child: Icon(Icons.arrow_back_ios),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
                   ItemProfile(MessageItem(
                       username: "Harold Beranger",
                       statutMessage: "last online 5 hours ago",

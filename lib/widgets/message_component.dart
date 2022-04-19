@@ -18,6 +18,7 @@ class MessageComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    bool isMobile = width <= 660;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
@@ -40,7 +41,7 @@ class MessageComponent extends StatelessWidget {
               margin: EdgeInsets.only(left: 10, right: 10),
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               constraints: BoxConstraints(
-                maxWidth: width / 4,
+                maxWidth: isMobile ? width / 1.6 : width / 4,
               ),
               decoration: BoxDecoration(
                   color: isMe ? Colors.white : Config.colors.primaryColor,
